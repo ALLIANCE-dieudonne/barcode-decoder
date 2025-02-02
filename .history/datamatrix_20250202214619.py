@@ -35,5 +35,5 @@ def read_datamatrix(image_path):
         print(f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
-    image_path = r"./datamatrix.png"  
+    image_path = r"./datamatrix.png"  # Your image path
     read_datamatrix(image_path)

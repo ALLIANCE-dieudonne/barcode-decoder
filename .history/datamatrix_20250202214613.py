@@ -27,6 +27,7 @@ def read_datamatrix(image_path):
         else:
             print("No Data Matrix code found in the image")
             
+        # Clean up temporary file
         import os
         if os.path.exists(temp_path):
             os.remove(temp_path)
@@ -34,6 +35,7 @@ def read_datamatrix(image_path):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
+# Example usage
 if __name__ == "__main__":
-    image_path = r"./datamatrix.png"  
+    image_path = r"./datamatrix.png"  # Your image path
     read_datamatrix(image_path)

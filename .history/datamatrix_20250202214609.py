@@ -18,15 +18,18 @@ def read_datamatrix(image_path):
         
         reader = BarCodeReader()
         
+        # Try to decode both original and processed image
         result = reader.decode(image_path, possible_formats=['DATA_MATRIX'])
         if not result:
             result = reader.decode(temp_path, possible_formats=['DATA_MATRIX'])
         
+        # Print result
         if result:
             print("Decoded content:", result.parsed)
         else:
             print("No Data Matrix code found in the image")
             
+        # Clean up temporary file
         import os
         if os.path.exists(temp_path):
             os.remove(temp_path)
@@ -34,6 +37,7 @@ def read_datamatrix(image_path):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
+# Example usage
 if __name__ == "__main__":
-    image_path = r"./datamatrix.png"  
+    image_path = r"./datamatrix.png"  # Your image path
     read_datamatrix(image_path)
